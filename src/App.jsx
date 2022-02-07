@@ -1,9 +1,10 @@
-function App() {
-  return (
-    <div className="App">
-      <h1>My Music App</h1>
-    </div>
-  );
-}
+import AppRouter from "./routers/AppRouter";
 
-export default App;
+const App = () => {
+return ( <>
+  <AppRouter/>
+</> );
+}
+ 
+export default App;<>
+</>
