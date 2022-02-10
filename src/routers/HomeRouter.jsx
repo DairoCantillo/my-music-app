@@ -1,8 +1,20 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "../components/pages/Home";
-import Header from '../components/molecules/header/Header';
-import Footer from '../components/molecules/footer/Footer';
+import AuthenticationService from "../services/auth";
+import { useEffect } from "react";
+import Header from '../components/organisms/Header';
+import Footer from '../components/organisms/Footer';
+
+import { useDispatch } from "react-redux";
+
+const authenticationService = new AuthenticationService();
+
 const HomeRouter = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    authenticationService.AuthenticationSpotify();
+  });
   return (
     <div>
       <Header/>

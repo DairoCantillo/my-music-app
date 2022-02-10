@@ -14,7 +14,7 @@ const Home = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    authenticationService.AuthenticationSpotify();
+    // authenticationService.AuthenticationSpotify();
     dispatch(tracksService.getTracksTop50());
     dispatch(userService.getUserInfo());
     dispatch(favoritesService.getFavoritesTracks());

@@ -4,7 +4,7 @@ import { tracksReducer } from './tracksReducer';
 import { favoritesReducer } from './favoritesReducer';
 
 export default combineReducers({
-    users:userReducer,
+    user:userReducer,
     tracks:tracksReducer,
     favorites:favoritesReducer
 });

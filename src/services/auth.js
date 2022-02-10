@@ -1,4 +1,5 @@
-import { addToLocalStorage } from "./session";
+import { addToLocalStorage, getToLocalStorage,deleteToLocalStorage } from "./session";
+import { updateUserLogin } from "../redux/actions/userActions";
 class AuthenticationService {
   CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
   SPOTIFY_AUTHORIZE_ENDPOINT = process.env.REACT_APP_SPOTIFY_AUTHORIZE_ENDPOINT;
@@ -37,6 +38,13 @@ class AuthenticationService {
     }, {});
 
     return paramsSplitUp;
+  };
+  validateSession = () => (dispatch) => {
+    const token = getToLocalStorage();
+    if (token.access_token.length === 0) {
+      dispatch(updateUserLogin(false));
+      deleteToLocalStorage();
+    }
   };
 }
 export default AuthenticationService;

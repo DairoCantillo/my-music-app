@@ -13,7 +13,7 @@ export const getToLocalStorage = () => {
   return { access_token, token_type, expires_in };
 };
 
-export const deleteToLocalStorage = (data) => {
+export const deleteToLocalStorage = () => {
   localStorage.removeItem("accessToken");
   localStorage.removeItem("tokenType");
   localStorage.removeItem("expiresIn");
