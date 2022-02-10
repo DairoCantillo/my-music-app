@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Routes, Route, BrowserRouter,Navigate } from "react-router-dom";
-import Login from '../components/pages/login/Login';
+import Login from '../components/pages/Login';
 import HomeRouter from './HomeRouter';
 const AppRouter = () => {
     const [isLogin, setIsLogin] = useState(true);

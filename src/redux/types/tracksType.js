@@ -1,0 +1,3 @@
+export const ADD_TRACKS = "ADD_TRACKS";
+export const ADD_TRACKS_SUCCESS = "ADD_TRACKS_SUCCESS";
+export const ADD_TRACKS_ERROR = "ADD_TRACKS_ERROR";

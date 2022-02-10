@@ -1,4 +1,4 @@
-import AuthenticationService from "../../../services/auth";
+import AuthenticationService from "../../services/auth";
 import { useEffect } from "react";
 
 

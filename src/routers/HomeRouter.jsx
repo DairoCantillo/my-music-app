@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import Home from "../components/pages/HomeMusicApp/Home";
+import Home from "../components/pages/Home";
 import Header from '../components/molecules/header/Header';
 import Footer from '../components/molecules/footer/Footer';
 const HomeRouter = () => {
