@@ -4,13 +4,11 @@ import AuthenticationService from "../services/auth";
 import { useEffect } from "react";
 import Header from '../components/organisms/Header';
 import Footer from '../components/organisms/Footer';
-import { useDispatch } from "react-redux";
 import Favorites from '../components/pages/Favorites';
 
+//services
 const authenticationService = new AuthenticationService();
-
 const HomeRouter = () => {
-  const dispatch = useDispatch();
 
   useEffect(() => {
     authenticationService.AuthenticationSpotify();
@@ -22,7 +20,6 @@ const HomeRouter = () => {
         <Route path="/" element={<Home />} />
         <Route path="favorites" element={<Favorites />} />
         <Route path="user" element={<Home />} />
-        <Route path="playlists" element={<Home />} />
       </Routes>
       <Footer/>
     </>

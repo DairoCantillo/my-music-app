@@ -12,7 +12,7 @@ const userService = new UserService();
 
 const Favorites = () => {
   const dispatch = useDispatch();
-  const favorites = useSelector((state) => state.favorites.tracks);
+  const favorites = useSelector((state) => state.favorites);
 
   useEffect(() => {
     dispatch(tracksService.getTracksTop50());
@@ -24,7 +24,7 @@ const Favorites = () => {
 
   const FavoritesComponent = () => (
     <section className="home">
-      <CardsList data={favorites} type={"dislike"}/>
+      <CardsList data={favorites.tracks} type={"dislike"}/>
     </section>
   );
   return <div>{favorites.isLoading? <Loading /> : <FavoritesComponent />}</div>;

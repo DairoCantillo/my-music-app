@@ -13,20 +13,18 @@ const userService = new UserService();
 const Home = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
-  const tracks = useSelector((state) => state.tracks.tracks);
+  const tracks = useSelector((state) => state.tracks);
   const favorites = useSelector((state) => state.favorites);
 
   useEffect(() => {
     dispatch(tracksService.getTracksTop50());
     dispatch(userService.getUserInfo());
-    dispatch(favoritesService.getFavoritesTracks());
-    // userService.deleteFavoriteTrack();
   }, []);
 
-
+  console.log("test:",tracks.isLoading);
   const HomeComponent = () => (
     <section className="home">
-      <CardsList data={tracks} type={"like"}/>
+      <CardsList data={tracks.tracks} type={"like"}/>
     </section>
   );
   return <div>{tracks.isLoading? <Loading /> : <HomeComponent />}</div>;
