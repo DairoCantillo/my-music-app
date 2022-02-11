@@ -5,7 +5,7 @@
   width: 95%;
   height: 70px;
   color: white;
-  background-color: #142e35;
+  background-color: $neutral-secondary-color;
   margin: 7px;
   display: flex;
   flex-flow: row nowrap;
@@ -27,6 +27,7 @@
     img {
       width: 30px;
       height: 30px;
+      cursor: pointer;
     }
     h3 {
       padding: 5px 0px;

@@ -2,6 +2,10 @@
 @import "./fonts.scss";
 
 .header {
+  // overflow: hidden;
+  // position: fixed;
+  // margin-bottom:80px ;
+  // top: 0;
   display: flex;
   flex-flow: row nowrap;
   background-color: $primary-color;
@@ -19,6 +23,7 @@
 
   .header__user {
     color: $neutral-color;
+    font-size: .7rem;
   }
   .header__logo {
     margin: 5px 30px;
@@ -46,7 +51,7 @@
       }
     }
     img{
-      width: 30px;
+      width: 20px;
       margin: 10px;
       cursor: pointer;
     }

@@ -1,13 +1,18 @@
 import { getToLocalStorage } from "./session";
 import axios from "axios";
+import TracksService from './tracksService';
 import {
+
+
   getFavorites,
   getFavoritesError,
   getFavoritesSuccess,
 } from "../redux/actions/favoritesActions";
+
 class FavoritesService {
   host = "https://api.spotify.com/v1/me";
 
+  // get tracks favorites
   getFavoritesTracks = () => async (dispatch) => {
     dispatch(getFavorites(true));
     try {
@@ -27,8 +32,27 @@ class FavoritesService {
       dispatch(getFavoritesError(error));
     }
   };
+  getFavoritesTracksSimple = async () => {
+    try {
+      if (getToLocalStorage) {
+        const { access_token, token_type } = getToLocalStorage();
+        const params = { limit: 50 };
+        const headers = {
+          Authorization: `${token_type} ${access_token}`,
+        };
+        const response = await axios.get(
+          `${this.host}/tracks?offset=0&limit=${params.limit}\n`,
+          { headers }
+        );
+        return response.data.items;
+      }
+    } catch (error) {
+      return error;
+    }
+  };
 
-  deleteFavoriteTrack = (id) => async (dispatch)=>{
+  //delete tracks favorites
+  deleteFavoriteTrack = (id) => async (dispatch) => {
     try {
       if (getToLocalStorage) {
         const { access_token, token_type } = getToLocalStorage();
@@ -42,7 +66,7 @@ class FavoritesService {
             ids: [`${id}`],
           },
         });
-        dispatch(this.getFavoritesTracks())
+        dispatch(this.getFavoritesTracks());
         return response;
       }
     } catch (error) {
@@ -50,7 +74,9 @@ class FavoritesService {
     }
   };
 
-  addFavoriteTrack = async (id) => {
+  //add favorites tracks
+  addFavoriteTrack = (id) => async (dispatch)=> {
+    const tracksService = new TracksService();
     try {
       if (getToLocalStorage) {
         const { access_token, token_type } = getToLocalStorage();
@@ -63,8 +89,7 @@ class FavoritesService {
           { ids: [`${id}`] },
           { headers }
         );
-
-        // const response = await axios.put(`${this.host}/track?ids=${id}`, { headers });
+        dispatch(tracksService.getTracksTop50());
         return response;
       }
     } catch (error) {

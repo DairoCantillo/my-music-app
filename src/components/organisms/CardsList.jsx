@@ -8,7 +8,7 @@ const favoritesService = new FavoritesService();
 const CardsList = ({ data, type }) => {
   const dispatch = useDispatch();
   const handleLike = (id) => {
-    favoritesService.addFavoriteTrack(id);
+    dispatch(favoritesService.addFavoriteTrack(id));
   };
   const handleDisike = (id) => {
     dispatch(favoritesService.deleteFavoriteTrack(id));
