@@ -28,7 +28,7 @@ class FavoritesService {
     }
   };
 
-  deleteFavoriteTrack = async (id) => {
+  deleteFavoriteTrack = (id) => async (dispatch)=>{
     try {
       if (getToLocalStorage) {
         const { access_token, token_type } = getToLocalStorage();
@@ -42,7 +42,7 @@ class FavoritesService {
             ids: [`${id}`],
           },
         });
-
+        dispatch(this.getFavoritesTracks())
         return response;
       }
     } catch (error) {

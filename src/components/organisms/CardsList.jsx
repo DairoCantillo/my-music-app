@@ -2,28 +2,22 @@ import FavoritesService from "../../services/favoritesService";
 import "../../common/styles/_cards-list.scss";
 import dislike from "../../common/assets/likeoff.png";
 import like from "../../common/assets/likeon.png";
+import { useDispatch } from "react-redux";
 const favoritesService = new FavoritesService();
 
 const CardsList = ({ data, type }) => {
+  const dispatch = useDispatch();
   const handleLike = (id) => {
     favoritesService.addFavoriteTrack(id);
   };
   const handleDisike = (id) => {
-    favoritesService.deleteFavoriteTrack(id);
+    dispatch(favoritesService.deleteFavoriteTrack(id));
   };
   const likeImage = (id) => (
-    <img
-      onClick={() => handleLike(id)}
-      src={dislike}
-      alt="dislike"
-    />
+    <img onClick={() => handleLike(id)} src={dislike} alt="dislike" />
   );
   const dislikeImage = (id) => (
-    <img
-      onClick={() => handleDisike(id)}
-      src={like}
-      alt="dislike"
-    />
+    <img onClick={() => handleDisike(id)} src={like} alt="dislike" />
   );
   return (
     <>
@@ -39,7 +33,9 @@ const CardsList = ({ data, type }) => {
               <h3>{track.track.name}</h3>
               <p>{track.track.artists[0].name}</p>
             </div>
-            {type==="like"?likeImage(track.track.id):dislikeImage(track.track.id)}
+            {type === "like"
+              ? likeImage(track.track.id)
+              : dislikeImage(track.track.id)}
           </article>
         </div>
       ))}

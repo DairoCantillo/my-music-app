@@ -21,7 +21,6 @@ const Home = () => {
     dispatch(userService.getUserInfo());
   }, []);
 
-  console.log("test:",tracks.isLoading);
   const HomeComponent = () => (
     <section className="home">
       <CardsList data={tracks.tracks} type={"like"}/>
