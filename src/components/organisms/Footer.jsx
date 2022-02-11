@@ -1,7 +1,7 @@
-// import './Footer.scss';
+import "../../common/styles/_footer.scss";
 const Footer = () => {
-    return ( <footer>
-        <h1>Footer</h1>
+    return ( <footer className="footer">
+        <h3>My music App</h3>
     </footer> );
 }
  

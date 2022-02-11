@@ -36,13 +36,13 @@ class FavoritesService {
           Authorization: `${token_type} ${access_token}`,
           "Content-Type": "application/json",
         };
-        const response = await axios.delete(
-          `${this.host}/tracks?`,
-          { ids: [`${id}`] },
-          {
-            headers,
-          }
-        );
+        const response = await axios.delete(`${this.host}/tracks?`, {
+          headers: headers,
+          data: {
+            ids: [`${id}`],
+          },
+        });
+
         return response;
       }
     } catch (error) {

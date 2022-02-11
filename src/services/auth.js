@@ -22,7 +22,6 @@ class AuthenticationService {
         window.location.hash
       );
       addToLocalStorage(response);
-      console.log("entra");
       window.location = "http://localhost:3000/Home";
     }
   };
@@ -31,7 +30,6 @@ class AuthenticationService {
     const stringAfterHashtag = hash.substring(1);
     const paramsInUrl = stringAfterHashtag.split("&");
     const paramsSplitUp = paramsInUrl.reduce((accumulater, currentValue) => {
-      console.log(currentValue);
       const [key, value] = currentValue.split("=");
       accumulater[key] = value;
       return accumulater;

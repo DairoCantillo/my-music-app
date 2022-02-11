@@ -7,13 +7,9 @@ const AppRouter = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="home/*" element={isLogin?<HomeRouter/>:<Navigate to="/login" />} />
-        {/* <Route path="login" element={<Login />} /> */}
-        <Route path="login" element={!isLogin?<Login />:<Navigate to="/Home" />} />
-
-        <Route
-        path="/"
-        element={<Navigate to="/login" />}
+        <Route path="/home/*" element={isLogin?<HomeRouter/>:<Navigate to="/login" />} />
+        <Route path="login" element={!isLogin?<Login />:<Navigate to="/home" />} />
+        <Route path="/"element={<Navigate to="/login" />}
     />
       </Routes>
     </BrowserRouter>

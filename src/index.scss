@@ -1,12 +1,20 @@
-$primay-color: #FF4C29;
-$secondary-color: #082032;
-$neutral-color: #2C394B;
-// $neutral--color: #334756;
+@import "./common/styles/_theme.scss";
 
-*{
+
+li{
+  list-style: none;
+}
+
+* {
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
 }
+a, a:link, a:visited, a:active {
+  text-decoration:none;
+  color: inherit;
+}
 
-
+body{
+  background-color: $neutral-color;
+}

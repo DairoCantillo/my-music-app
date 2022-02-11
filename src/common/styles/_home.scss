@@ -1,0 +1,17 @@
+@import "./theme.scss";
+@import "./fonts.scss";
+
+.home {
+  display: flex;
+  flex-flow: column;
+  max-width: 1080px;
+  margin: 20px auto;
+  justify-content: space-evenly;
+
+}
+
+@media all and (min-width: 768px) {
+  .home {
+    flex-flow: row wrap;
+  }
+}

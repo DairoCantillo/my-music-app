@@ -1,4 +1,4 @@
-import { getToLocalStorage } from "./session";
+import { getToLocalStorage,deleteToLocalStorage } from "./session";
 import axios from "axios";
 import {
   getUser,
@@ -20,6 +20,7 @@ class UserService {
         dispatch(getUserSuccess(response.data));
       }
     } catch (error) {
+      deleteToLocalStorage();
       dispatch(getUserError(error))
     }
   };

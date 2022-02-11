@@ -1,0 +1,63 @@
+@import "./theme.scss";
+@import "./fonts.scss";
+
+.card-track {
+  width: 95%;
+  height: 70px;
+  color: white;
+  background-color: #142e35;
+  margin: 7px;
+  display: flex;
+  flex-flow: row nowrap;
+  border-radius: 10px;
+  overflow: hidden;
+  font-family: PressStart2P;
+
+  .card-track__image {
+    width: 30%;
+  }
+  .card-track__info {
+    padding: 5px 10px;
+    width: 70%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+
+    img {
+      width: 30px;
+      height: 30px;
+    }
+    h3 {
+      padding: 5px 0px;
+      font-size: 0.5rem;
+    }
+    p {
+      font-size: 0.4rem;
+    }
+  }
+}
+@media all and (min-width: 425px) {
+  .card-track {
+    height: 120px;
+  }
+}
+@media all and (min-width: 768px) {
+
+  .card-track {
+    height: 120px;
+    width: 45%;
+  }
+}
+@media all and (min-width: 1024px) {
+  .card-track {
+    width: 30%;
+    height: 150px;
+    h3 {
+      font-size: 0.6rem;
+    }
+    p {
+      font-size: 0.5rem;
+    }
+  }
+}

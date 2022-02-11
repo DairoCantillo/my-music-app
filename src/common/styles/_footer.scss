@@ -1,0 +1,12 @@
+@import "./theme.scss";
+@import "./fonts.scss";
+
+.footer{
+    font-family: PressStart2P;
+    text-align: center;
+    padding: 15px;
+    height: 50px;
+    width: 100%;
+    color: $primary-color;
+    background-color: $secondary-color;
+}

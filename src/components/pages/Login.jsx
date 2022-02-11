@@ -1,18 +1,17 @@
 import AuthenticationService from "../../services/auth";
-import { useEffect } from "react";
-
+import logo from '../../common/assets/logo.png';
+import "../../common/styles/_login.scss"
 
 const authenticationService = new AuthenticationService();
 const Login = () => {
-  const handleLogin = () => {
-    authenticationService.InitHash();
-  };
+  const handleLogin = () => authenticationService.InitHash();
 
   return (
-    <div className="container">
-      <h1>ID:{process.env.REACT_APP_CLIENT_ID}</h1>
-      <button onClick={handleLogin}>login to spotify </button>
-    </div>
+    <section className="login-container">
+      <h1 className="login__title">DECA MUSIC</h1>
+      <img className="login__image" src={logo} alt="logo" />
+      <button onClick={handleLogin} className="login__button">LOGIN</button>
+    </section>
   );
 };
 
