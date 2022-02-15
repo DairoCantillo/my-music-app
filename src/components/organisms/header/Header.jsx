@@ -14,7 +14,7 @@ const Header = () => {
   const user = useSelector((state) => state.user);
   const handleLogout = () => {
     deleteToLocalStorage();
-    navigate("/login")
+    navigate("/login");
     ;
   };
   const [isActivate, setIsActivate] = useState(false);
