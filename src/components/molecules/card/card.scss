@@ -17,6 +17,7 @@
 
   .card-track__image {
     width: 30%;
+    width: 91px;
   }
   .card-track__info {
     padding: 5px 10px;
@@ -36,11 +37,9 @@
   }
 }
 @media all and (min-width: 425px) {
-  .card-track {
-    height: 160px;
-  }
+
   .card-track__image {
-    min-width: 180px;
+    width: 180px;
   }
 }
 @media all and (min-width: 768px) {

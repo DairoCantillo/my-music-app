@@ -4,6 +4,7 @@ import DeleteButton from '../../atoms/delete-button/DeleteButton';
 
 
 const Card = ({ name, image, artist, id, type }) => {
+  
   const cutString = (string, limit)=>{
     if(string.length>=limit){
       const cuted = string.slice(0,limit);
