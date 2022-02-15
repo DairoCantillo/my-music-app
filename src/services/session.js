@@ -12,6 +12,10 @@ export const getToLocalStorage = () => {
   const expires_in  = localStorage.getItem("expiresIn");
   return { access_token, token_type, expires_in };
 };
+export const onSession = () => {
+  const LocalStore = getToLocalStorage();
+  return LocalStore.access_token !== null?true:false;
+};
 
 export const deleteToLocalStorage = () => {
   localStorage.removeItem("accessToken");
