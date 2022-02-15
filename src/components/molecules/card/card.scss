@@ -3,7 +3,7 @@
 
 .card-track {
   width: 95%;
-  height: 70px;
+  height: 85px;
   color: white;
   background-color: $neutral-secondary-color;
   margin: 7px auto;
@@ -37,24 +37,32 @@
 }
 @media all and (min-width: 425px) {
   .card-track {
-    height: 120px;
+    height: 160px;
+  }
+  .card-track__image {
+    min-width: 180px;
   }
 }
 @media all and (min-width: 768px) {
   .card-track {
-    height: 120px;
     width: 45%;
+  }
+  .card-track__image {
+    min-width: 120px;
   }
 }
 @media all and (min-width: 1024px) {
   .card-track {
     width: 30%;
-    height: 150px;
+    height: 130px;
     h3 {
       font-size: 0.6rem;
     }
     p {
       font-size: 0.5rem;
     }
+  }
+  .card-track__image {
+    min-width: 130px;
   }
 }
