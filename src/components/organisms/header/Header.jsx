@@ -1,12 +1,13 @@
-import "../../common/styles/_header.scss";
-import menu from "../../common/assets/menu.png";
-import logo from "../../common/assets/logo-home.png";
-import logout from "../../common/assets/logout.png";
-import Menu from "../organisms/Menu";
+import "./header.scss";
+import menu from "../../../common/assets/menu.png";
+import logo from "../../../common/assets/logo-home.png";
+import logout from "../../../common/assets/logout.png";
+import Menu from "../../organisms/menu/Menu";
 import { Link, useNavigate } from "react-router-dom";
-import { deleteToLocalStorage } from "../../services/session";
+import { deleteToLocalStorage } from "../../../services/session";
 import { useState } from "react";
 import {  useSelector } from "react-redux";
+import Logo from '../../atoms/logo/Logo';
 
 const Header = () => {
   let navigate = useNavigate();
@@ -27,12 +28,7 @@ const Header = () => {
           src={menu}
           alt="menu"
         />
-        <img
-          onClick={() => navigate("/")}
-          className="header__logo"
-          src={logo}
-          alt="logo"
-        />
+        <Logo/>
         <div className="header__nav">
           <ul>
             <li>

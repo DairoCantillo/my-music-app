@@ -1,7 +1,5 @@
-@import "./theme.scss";
-@import "./fonts.scss";
-
-
+@import "../../../common/styles/fonts.scss";
+@import "../../../common/styles/theme.scss";
 .login-container {
   display: flex;
   flex-flow: column;
@@ -23,6 +21,9 @@
   font-size: 1.5rem;
 }
 // button
+.login__button {
+  cursor: pointer;
+}
 .login__button,
 .login__button::after {
   width: 240px;
@@ -31,6 +32,7 @@
   font-size: 1.2rem;
   background: linear-gradient(45deg, transparent 5%, $primary-color 5%);
   border: 0;
+  cursor: pointer;
   color: #fff;
   font-family: PressStart2P;
   letter-spacing: 3px;

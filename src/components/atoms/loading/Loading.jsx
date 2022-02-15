@@ -1,4 +1,4 @@
-import "../../common/styles/_loading.scss";
+import "./loading.scss";
 const Loading = () => {
   return (
     <div className="loadingio-spinner-ripple-i45hwmdpjq">

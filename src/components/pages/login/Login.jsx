@@ -1,6 +1,6 @@
-import AuthenticationService from "../../services/auth";
-import logo from '../../common/assets/logo.png';
-import "../../common/styles/_login.scss"
+import AuthenticationService from "../../../services/auth";
+import logo from '../../../common/assets/logo.png';
+import "./login.scss"
 
 const authenticationService = new AuthenticationService();
 const Login = () => {

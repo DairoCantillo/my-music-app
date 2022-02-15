@@ -1,0 +1,11 @@
+.logo {
+    margin: 5px 30px;
+    width: 80px;
+    cursor: pointer;
+}
+
+@media all and (max-width: 768px) {
+    .logo {
+      margin: 0 auto;
+    }
+  }

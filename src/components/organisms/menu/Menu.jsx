@@ -1,8 +1,7 @@
-import "../../common/styles/_menu.scss";
-import logo from "../../common/assets/logo-home.png";
-import exit from "../../common/assets/exit.png";
+import "./menu.scss";
+import exit from "../../../common/assets/exit.png";
 import { Link } from "react-router-dom";
-import { deleteToLocalStorage } from "../../services/session";
+import { deleteToLocalStorage } from "../../../services/session";
 
 const Menu = ({user, isActivate, setIsActivate }) => {
   return (
@@ -15,7 +14,6 @@ const Menu = ({user, isActivate, setIsActivate }) => {
             src={exit}
             alt="exit"
           />
-
           <img className="navbar__img" src={user.avatar} alt="avatar" />
           <h3 className="navbar__h3">{user.name}</h3>
           <ul>

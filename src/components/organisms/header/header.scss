@@ -1,11 +1,7 @@
-@import "./theme.scss";
-@import "./fonts.scss";
+@import "../../../common/styles/fonts.scss";
+@import "../../../common/styles/theme.scss";
 
 .header {
-  // overflow: hidden;
-  // position: fixed;
-  // margin-bottom:80px ;
-  // top: 0;
   display: flex;
   flex-flow: row nowrap;
   background-color: $primary-color;
@@ -18,18 +14,13 @@
 
   .header__menu--activate {
     display: none;
-    
   }
 
   .header__user {
     color: $neutral-color;
-    font-size: .7rem;
+    font-size: 0.7rem;
   }
-  .header__logo {
-    margin: 5px 30px;
-    width: 80px;
-    cursor: pointer;
-  }
+
   .header__nav {
     display: flex;
     flex-flow: row nowrap;
@@ -50,26 +41,33 @@
         text-decoration: 2px underline $neutral-color;
       }
     }
-    img{
+    img {
       width: 20px;
       margin: 10px;
       cursor: pointer;
     }
-
   }
   @media all and (max-width: 768px) {
-   .header__nav {
+    .header {
+      overflow: hidden;
+      position: fixed;
+      top: 0;
+    }
+    .header__nav {
       display: none;
     }
-    .header__logo {
-        margin: 0 auto;
-      }
-      .header__menu--activate {
-        display: block;
-        position: absolute;
-        right: 10px;
-        width: 30px;
-      }
+    .header__menu--activate {
+      display: block;
+      position: absolute;
+      right: 10px;
+      width: 30px;
+    }
   }
 }
-
+@media all and (max-width: 768px) {
+  .header {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+  }
+}

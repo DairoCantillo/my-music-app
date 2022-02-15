@@ -1,0 +1,13 @@
+@import "../../../common/styles/fonts.scss";
+@import "../../../common/styles/theme.scss";
+
+.delete-button {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  transition: transform .3s; 
+}
+
+.delete-button:hover, .delete-button:focus{
+  transform: scale(1.1);
+}

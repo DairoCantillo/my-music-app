@@ -1,17 +1,19 @@
-@import "./theme.scss";
-@import "./fonts.scss";
+@import "../../../common/styles/fonts.scss";
+@import "../../../common/styles/theme.scss";
 
 .card-track {
   width: 95%;
   height: 70px;
   color: white;
   background-color: $neutral-secondary-color;
-  margin: 7px;
+  margin: 7px auto;
   display: flex;
   flex-flow: row nowrap;
   border-radius: 10px;
   overflow: hidden;
   font-family: PressStart2P;
+  letter-spacing: 0.3pt;
+  line-height: 10pt;
 
   .card-track__image {
     width: 30%;
@@ -24,11 +26,6 @@
     align-items: center;
     justify-content: space-between;
 
-    img {
-      width: 30px;
-      height: 30px;
-      cursor: pointer;
-    }
     h3 {
       padding: 5px 0px;
       font-size: 0.5rem;
@@ -44,7 +41,6 @@
   }
 }
 @media all and (min-width: 768px) {
-
   .card-track {
     height: 120px;
     width: 45%;

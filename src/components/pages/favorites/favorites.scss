@@ -1,7 +1,7 @@
-@import "./theme.scss";
-@import "./fonts.scss";
+@import "../../../common/styles/fonts.scss";
+@import "../../../common/styles/theme.scss";
 
-.home {
+.favorites {
   display: flex;
   flex-flow: column;
   max-width: 1080px;
@@ -11,7 +11,7 @@
 }
 
 @media all and (min-width: 768px) {
-  .home {
+  .favorites {
     flex-flow: row wrap;
   }
 }

@@ -1,4 +1,4 @@
-import AppRouter from "./routers/AppRouter";
+import AppRouter from "./routers/appRouter/AppRouter";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
 
