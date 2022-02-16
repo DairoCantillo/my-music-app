@@ -2,16 +2,9 @@
 @import "../../../common/styles/theme.scss";
 
 .favorites {
-  display: flex;
-  flex-flow: column;
   max-width: 1080px;
-  margin: 20px auto;
-  justify-content: space-evenly;
-
-}
-
-@media all and (min-width: 768px) {
-  .favorites {
-    flex-flow: row wrap;
-  }
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  column-gap: 10px;
 }

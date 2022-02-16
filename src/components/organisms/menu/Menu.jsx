@@ -28,11 +28,6 @@ const Menu = ({user, isActivate, setIsActivate }) => {
               </Link>
             </li>
             <li>
-              <Link onClick={()=>setIsActivate(false)} to="user">
-                USER
-              </Link>
-            </li>
-            <li>
               <Link onClick={deleteToLocalStorage} to="/login">
                 SALIR
               </Link>

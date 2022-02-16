@@ -16,7 +16,7 @@ const Home = () => {
   useEffect(() => {
     dispatch(tracksService.getTracksTop50());
     dispatch(userService.getUserInfo());
-  }, []);
+  }, [dispatch]);
 
   const HomeComponent = () => (
     <section className="home">

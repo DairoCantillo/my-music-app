@@ -1,0 +1,19 @@
+@import "../../../common/styles/fonts.scss";
+@import "../../../common/styles/theme.scss";
+
+.card-track__image {
+  width: 30%;
+  width: 91px;
+}
+
+
+@media all and (min-width: 768px) {
+  .card-track__image {
+    min-width: 120px;
+  }
+}
+@media all and (min-width: 1024px) {
+  .card-track__image {
+    min-width: 130px;
+  }
+}

@@ -1,6 +1,5 @@
 import "./header.scss";
 import menu from "../../../common/assets/menu.png";
-import logo from "../../../common/assets/logo-home.png";
 import logout from "../../../common/assets/logout.png";
 import Menu from "../../organisms/menu/Menu";
 import { Link, useNavigate } from "react-router-dom";
@@ -36,9 +35,6 @@ const Header = () => {
             </li>
             <li>
               <Link to="favorites">FAVORITES</Link>
-            </li>
-            <li>
-              <Link to="user">USER</Link>
             </li>
           </ul>
           <div className="header__user">{user.name}</div>

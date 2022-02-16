@@ -1,16 +1,11 @@
 @import "../../../common/styles/fonts.scss";
 @import "../../../common/styles/theme.scss";
+
 .home {
-  display: flex;
-  flex-flow: column;
+  margin: 10px auto;
   max-width: 1080px;
-  margin: 20px auto;
-  justify-content: space-evenly;
-
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  column-gap: 10px;
 }
 
-@media all and (min-width: 768px) {
-  .home {
-    flex-flow: row wrap;
-  }
-}

@@ -1,8 +1,8 @@
 import "./loading.scss";
 const Loading = () => {
   return (
-    <div className="loadingio-spinner-ripple-i45hwmdpjq">
-      <div className="ldio-hlsb3dy6dvl">
+    <div data-testid="loading" className="loading">
+      <div className="loading-spinner">
         <div></div>
         <div></div>
       </div>

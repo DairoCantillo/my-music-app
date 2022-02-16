@@ -1,6 +1,7 @@
 import "./card.scss";
 import LikeButton from '../../atoms/like-button/LikeButton';
 import DeleteButton from '../../atoms/delete-button/DeleteButton';
+import CardImage from "../../atoms/card-image/CardImage";
 
 
 const Card = ({ name, image, artist, id, type }) => {
@@ -16,7 +17,7 @@ const Card = ({ name, image, artist, id, type }) => {
   return (
     <>
       <div className="card-track" key={id}>
-        <img className="card-track__image" src={image} alt={name} />
+        <CardImage name={name} image={image}/>
         <article className="card-track__info">
           <div>
             <h3>{cutString(name, 24)}</h3>

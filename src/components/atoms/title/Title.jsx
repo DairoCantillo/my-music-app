@@ -1,7 +1,7 @@
 import "./title.scss"
 
-const Title = () => {
-    return ( <h1>Title</h1> );
+const Title = ({title}) => {
+    return ( <h1>{title}</h1> );
 }
  
 export default Title;
