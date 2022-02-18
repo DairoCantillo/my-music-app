@@ -6,6 +6,8 @@ import "react-redux";
 const mockedUsedNavigate = jest.fn();
 // const mockHandleLike = jest.fn();
 const mockState = jest.fn();
+const mockSelector = jest.fn();
+
 
 jest.mock("react-router-dom", () => ({
   ...jest.requireActual("react-router-dom"),
@@ -15,8 +17,8 @@ jest.mock("react-router-dom", () => ({
 jest.mock("react-redux", () => ({
   ...jest.requireActual("react-redux"),
   useDispatch: () => mockState,
+  useSelector: () => mockSelector
 }));
-
 describe("<DeleteButton />", () => {
 
   const testID = "idtest777";
@@ -30,6 +32,6 @@ describe("<DeleteButton />", () => {
     render(<DeleteButton />);
     const button = screen.getByAltText("delete");
     fireEvent.click(button);
-    expect(mockState).toHaveBeenCalledTimes(1);
+    expect(mockState).toHaveBeenCalled();
   });
 });

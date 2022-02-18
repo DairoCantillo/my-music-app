@@ -3,10 +3,9 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import like from "../../../common/assets/likeon.png";
 import dislike from "../../../common/assets/likeoff.png";
 import LikeButton from "./LikeButton";
-
 const mockedUsedNavigate = jest.fn();
-// const mockHandleLike = jest.fn();
 const mockState = jest.fn();
+const mockSelector = jest.fn();
 
 jest.mock("react-router-dom", () => ({
   ...jest.requireActual("react-router-dom"),
@@ -16,7 +15,9 @@ jest.mock("react-router-dom", () => ({
 jest.mock("react-redux", () => ({
   ...jest.requireActual("react-redux"),
   useDispatch: () => mockState,
+  useSelector: () => mockSelector
 }));
+
 
 describe("<LikeButton />", () => {
 
@@ -36,6 +37,6 @@ describe("<LikeButton />", () => {
     render(<LikeButton />);
     const button = screen.getByAltText("like");
     fireEvent.click(button);
-    expect(mockState).toHaveBeenCalledTimes(1);
+    expect(mockState).toHaveBeenCalled();
   });
 });

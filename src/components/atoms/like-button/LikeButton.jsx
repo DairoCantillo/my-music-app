@@ -1,17 +1,22 @@
 import dislike from "../../../common/assets/likeoff.png";
-import "./like-button.scss"
+import "./like-button.scss";
 import like from "../../../common/assets/likeon.png";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import FavoritesService from "../../../services/favoritesService";
 import { useState } from "react";
+import TracksService from "../../../services/tracksService";
+
 const favoritesService = new FavoritesService();
+const tracksService = new TracksService();
 
 const LikeButton = ({ id, initState = false }) => {
+  const tracks = useSelector((state) => state.tracks.tracks);
   const [cliked, setCliked] = useState(initState);
   const dispatch = useDispatch();
-  const handleLike = (id) => {
+  const handleLike = async (id) => {
     setCliked(true);
     dispatch(favoritesService.addFavoriteTrack(id));
+    dispatch(tracksService.deleteTrack(id, tracks));
   };
   return (
     <>

@@ -1,9 +1,6 @@
 import { getToLocalStorage } from "./session";
 import axios from "axios";
-import TracksService from './tracksService';
 import {
-
-
   getFavorites,
   getFavoritesError,
   getFavoritesSuccess,
@@ -50,7 +47,16 @@ class FavoritesService {
       return error;
     }
   };
-
+  deleteFavorite= (id, tracks) => async (dispatch) => {
+    try {
+      if (getToLocalStorage) {
+        let data = tracks.filter((track) => track.track.id !== id);
+        dispatch(getFavoritesSuccess(data));
+      }
+    } catch (error) {
+      dispatch(getFavoritesError(error));
+    }
+  };
   //delete tracks favorites
   deleteFavoriteTrack = (id) => async (dispatch) => {
     try {
@@ -66,7 +72,6 @@ class FavoritesService {
             ids: [`${id}`],
           },
         });
-        dispatch(this.getFavoritesTracks());
         return response;
       }
     } catch (error) {
@@ -76,7 +81,6 @@ class FavoritesService {
 
   //add favorites tracks
   addFavoriteTrack = (id) => async (dispatch)=> {
-    const tracksService = new TracksService();
     try {
       if (getToLocalStorage) {
         const { access_token, token_type } = getToLocalStorage();
@@ -89,7 +93,6 @@ class FavoritesService {
           { ids: [`${id}`] },
           { headers }
         );
-        dispatch(tracksService.getTracksTop50());
         return response;
       }
     } catch (error) {

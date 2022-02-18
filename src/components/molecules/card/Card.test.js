@@ -4,10 +4,12 @@ import like from "../../../common/assets/likeon.png";
 import Card from "./Card";
 
 const mockState = jest.fn();
+const mockSelector = jest.fn();
 
 jest.mock("react-redux", () => ({
   ...jest.requireActual("react-redux"),
   useDispatch: () => mockState,
+  useSelector: () => mockSelector
 }));
 
 describe("<Card />", () => {

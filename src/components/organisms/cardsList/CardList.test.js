@@ -3,10 +3,12 @@ import { render, screen } from "@testing-library/react";
 import CardsList from "./CardsList";
 
 const mockState = jest.fn();
+const mockSelector = jest.fn();
 
 jest.mock("react-redux", () => ({
   ...jest.requireActual("react-redux"),
   useDispatch: () => mockState,
+  useSelector: () => mockSelector
 }));
 
 describe("<CardsList />", () => {

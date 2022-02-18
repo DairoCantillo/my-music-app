@@ -42,5 +42,16 @@ class TracksService {
       dispatch(getTracksError(error));
     }
   };
+  deleteTrack = (id, tracks) => async (dispatch) => {
+    try {
+      if (getToLocalStorage) {
+        let data = tracks.filter((track) => track.track.id !== id);
+        dispatch(getTracksSuccess(data));
+      }
+    } catch (error) {
+      console.error(error);
+      dispatch(getTracksError(error));
+    }
+  };
 }
 export default TracksService;
