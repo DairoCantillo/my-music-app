@@ -1,37 +1,31 @@
 import "./menu.scss";
 import exit from "../../../common/assets/exit.png";
-import { Link } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import { deleteToLocalStorage } from "../../../services/session";
 
-const Menu = ({user, isActivate, setIsActivate }) => {
+const Menu = ({ user, isActivate, setIsActivate }) => {
+  const navigate = useNavigate();
+  const redirect = (to) => {
+    if ("/login" === to) deleteToLocalStorage();
+    navigate(to);
+    setIsActivate(false);
+  };
   return (
     <>
       {isActivate && (
-        <nav className="navbar">
+        <nav data-testid="menu" className="navbar">
           <img
             className="navbar__exit-button"
             onClick={() => setIsActivate(false)}
             src={exit}
-            alt="exit"
+            alt="exit-button"
           />
           <img className="navbar__img" src={user.avatar} alt="avatar" />
           <h3 className="navbar__h3">{user.name}</h3>
           <ul>
-            <li>
-              <Link onClick={()=>setIsActivate(false)} to="/">
-                HOME
-              </Link>
-            </li>
-            <li>
-              <Link onClick={()=>setIsActivate(false)} to="favorites">
-                FAVORITES
-              </Link>
-            </li>
-            <li>
-              <Link onClick={deleteToLocalStorage} to="/login">
-                SALIR
-              </Link>
-            </li>
+            <li onClick={() => redirect("/")}>HOME</li>
+            <li onClick={() => redirect("favorites")}>FAVORITES</li>
+            <li onClick={() => redirect("/login")}>LOGOUT</li>
           </ul>
         </nav>
       )}

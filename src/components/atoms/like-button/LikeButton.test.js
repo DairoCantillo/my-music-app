@@ -3,7 +3,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import like from "../../../common/assets/likeon.png";
 import dislike from "../../../common/assets/likeoff.png";
 import LikeButton from "./LikeButton";
-import "react-redux";
+
 const mockedUsedNavigate = jest.fn();
 // const mockHandleLike = jest.fn();
 const mockState = jest.fn();

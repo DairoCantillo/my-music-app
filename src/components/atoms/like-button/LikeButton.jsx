@@ -1,4 +1,5 @@
 import dislike from "../../../common/assets/likeoff.png";
+import "./like-button.scss"
 import like from "../../../common/assets/likeon.png";
 import { useDispatch } from "react-redux";
 import FavoritesService from "../../../services/favoritesService";
