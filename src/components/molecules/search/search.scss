@@ -1,0 +1,45 @@
+@import "../../../common/styles/fonts.scss";
+@import "../../../common/styles/theme.scss";
+
+.search {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.search__input {
+  width: 100%;
+  border: 3px solid $secondary-color;
+  border-right: none;
+  padding: 5px;
+  height: 36px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: $neutral-secondary-color;
+}
+
+.search__input:focus {
+  color:$neutral-secondary-color;
+}
+
+.search__button {
+  font-family: PressStart2P;
+  width: 95px;
+  height: 36px;
+  border: 1px solid $secondary-color;
+  background: $secondary-color;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 0.6rem;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 5px 10px;
+}
+@media all and (max-width: 768px) {
+}

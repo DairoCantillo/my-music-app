@@ -1,10 +1,11 @@
 import "@testing-library/jest-dom/extend-expect";
 import { fireEvent, render, screen } from "@testing-library/react";
 import Header from "./Header";
-import {useState} from "react";
 
 const mockedUsedNavigate = jest.fn();
 const mockState = jest.fn();
+const mockDispatch = jest.fn();
+
 
 
 jest.mock("react-router-dom", () => ({
@@ -15,6 +16,7 @@ jest.mock("react-router-dom", () => ({
 jest.mock("react-redux", () => ({
   ...jest.requireActual("react-redux"),
   useSelector: () => mockState,
+  useDispatch: () => mockDispatch,
 }));
 
 describe("<Header />", () => {
@@ -28,13 +30,7 @@ describe("<Header />", () => {
     render(<Header />);
 
     const button = screen.getByAltText("menu");
-    // const spy = jest
-    //   .spyOn(button, "handleLogout")
-    //   .mockImplementation(() => null);
-    
     fireEvent.click(button);
-    //falta validar el SetState
-    // expect(mockSetState).toHaveBeenCalled();
   });
 
   test("that when clicking redirects to home", () => {

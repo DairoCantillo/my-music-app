@@ -20,7 +20,6 @@ jest.mock("react-redux", () => ({
 
 
 describe("<LikeButton />", () => {
-
   const testID = "idtest777";
   test("render LikeButton, likeoff", () => {
     render(<LikeButton id={testID}/>);
@@ -33,7 +32,7 @@ describe("<LikeButton />", () => {
     expect(button.src).toContain(like);
   });
 
-  test("like", () => {
+  test("like",  () => {
     render(<LikeButton />);
     const button = screen.getByAltText("like");
     fireEvent.click(button);

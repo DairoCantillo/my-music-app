@@ -9,12 +9,17 @@ const DeleteButton = ({ id }) => {
   const dispatch = useDispatch();
   const handleDelete = (id) => {
     dispatch(favoritesService.deleteFavoriteTrack(id));
-    dispatch(favoritesService.deleteFavorite(id,tracks));
+    dispatch(favoritesService.deleteFavorite(id, tracks));
   };
 
   return (
     <>
-      <img className="delete-button" onClick={() => handleDelete(id)} src={deleteIcon} alt="delete" />
+      <img
+        className="delete-button"
+        onClick={() => handleDelete(id)}
+        src={deleteIcon}
+        alt="delete"
+      />
     </>
   );
 };

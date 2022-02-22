@@ -1,0 +1,76 @@
+@import "../../../common/styles/fonts.scss";
+@import "../../../common/styles/theme.scss";
+
+.page404 {
+  display: flex;
+  flex-flow: column;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  font-family: PressStart2P;
+  justify-content: center;
+  height: 100vh;
+  .page404__title {
+    color: $secondary-color;
+    font-size: 5rem;
+    margin: 60px 10px;
+  }
+  img{
+      padding: 10px;
+  }
+  .page404__subtitle {
+    color: #FFFC01;
+    font-size: 1rem;
+    margin: 20px;
+  }
+
+.page404__title{
+  color:$secondary-color;
+  font-size:5rem;
+  position:relative;
+  width:280px;
+  margin:30px auto;
+  text-shadow:1px 0 #FFFC01
+}
+@keyframes noise-anim{
+  $steps:20;
+  @for $i from 0 through $steps{
+    #{percentage($i*(1/$steps))}{
+      clip:rect(random(40)+px,9999px,random(40)+px,0);
+    }
+  }
+}
+.page404__title:after{
+  content:attr(data-text);
+  position:absolute;
+  left:2px;
+  text-shadow:-1px 0 red;
+  top:0;
+  color:white;
+  background:$neutral-color;
+  overflow:hidden;
+  clip:rect(0,90px,0,0); 
+  animation:noise-anim 2s infinite linear alternate-reverse;
+}
+
+@keyframes noise-anim-2{
+  $steps:20;
+  @for $i from 0 through $steps{
+    #{percentage($i*(1/$steps))}{
+      clip:rect(random(200)+px,9999px,random(200)+px,0);
+    }
+  }
+}
+.page404__title:before{
+  content:attr(data-text);
+  position:absolute;
+  left:-2px;
+  text-shadow:1px 0 #FFFC01; 
+  top:0;
+  color:white;
+  background:$neutral-color;
+  overflow:hidden;
+  clip:rect(0,100px,0,0); 
+  animation:noise-anim-2 3s infinite linear alternate-reverse;
+}
+}

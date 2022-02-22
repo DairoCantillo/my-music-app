@@ -17,6 +17,38 @@ class TracksService {
     }
     return true;
   };
+  refactorTracks = (tracks) => {
+    let data = [];
+    tracks.map((track) => data.push({ track: track }));
+    return data;
+  };
+  searchTrack = (value) => async (dispatch) => {
+    const favoritesService = new FavoritesService();
+    try {
+      dispatch(getTracks(true));
+      if (getToLocalStorage) {
+        const { access_token, token_type } = getToLocalStorage();
+        const headers = {
+          Authorization: `${token_type} ${access_token}`,
+        };
+        const response = await axios.get(
+          `${this.host}/search?q=track:${value}&type=track&limit=50`,
+          {
+            headers: headers,
+          }
+        );
+        const refactored = this.refactorTracks(response.data.tracks.items);
+        const reponseFavorites = await favoritesService.getFavoritesTracksSimple();
+        let data = refactored.filter((track) =>
+          this.validateTracks(reponseFavorites, track.track.id)
+        );
+        dispatch(getTracksSuccess(data));
+      }
+    } catch (error) {
+      dispatch(getTracksError(error));
+    }
+  };
+
   getTracksTop50 = () => async (dispatch) => {
     const favoritesService = new FavoritesService();
     try {
@@ -30,15 +62,13 @@ class TracksService {
           `${this.host}/playlists/37i9dQZEVXbMDoHDwVN2tF`,
           { headers }
         );
-        const reponseFavorites =
-          await favoritesService.getFavoritesTracksSimple();
+        const reponseFavorites = await favoritesService.getFavoritesTracksSimple();
         let data = response.data.tracks.items.filter((track) =>
           this.validateTracks(reponseFavorites, track.track.id)
         );
         dispatch(getTracksSuccess(data));
       }
     } catch (error) {
-      console.error(error);
       dispatch(getTracksError(error));
     }
   };
@@ -49,7 +79,6 @@ class TracksService {
         dispatch(getTracksSuccess(data));
       }
     } catch (error) {
-      console.error(error);
       dispatch(getTracksError(error));
     }
   };

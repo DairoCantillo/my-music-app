@@ -1,16 +1,21 @@
 import AuthenticationService from "../../../services/auth";
-import logo from '../../../common/assets/logo.png';
-import "./login.scss"
+import logo from "../../../common/assets/logo.png";
+import React from "react";
+import "./login.scss";
+import GlitchButton from "../../atoms/glitch-button/GlitchButton";
 
-const authenticationService = new AuthenticationService();
 const Login = () => {
-  const handleLogin = () => authenticationService.InitHash();
+const authenticationService = new AuthenticationService();
+
+  const handleLogin = () => {
+    authenticationService.InitHash();
+  };
 
   return (
     <section className="login-container">
       <h1 className="login__title">DECA MUSIC</h1>
       <img className="login__image" src={logo} alt="logo" />
-      <button onClick={handleLogin} className="login__button">LOGIN</button>
+      <GlitchButton text="LOGIN" onclick={handleLogin}/>
     </section>
   );
 };

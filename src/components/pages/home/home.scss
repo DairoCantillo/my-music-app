@@ -2,10 +2,8 @@
 @import "../../../common/styles/theme.scss";
 
 .home {
-  margin: 10px auto;
   max-width: 1080px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  column-gap: 10px;
+  margin: 0px auto;
+  min-height: 100vh;
 }
 

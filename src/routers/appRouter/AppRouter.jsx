@@ -4,9 +4,9 @@ import HomeRouter from "../homeRouter/HomeRouter";
 import Login from "../../components/pages/login/Login";
 import "./app-router.scss";
 import { onSession } from "../../services/session";
+import Page404 from '../../components/pages/404/Page404';
 const AppRouter = () => {
   const isLogin = useSelector((state) => state.user.isLogin);
-
   return (
     <BrowserRouter>
       <Routes>
@@ -19,6 +19,7 @@ const AppRouter = () => {
           element={!onSession() ? <Login /> : <Navigate to="/home" />}
         />
         <Route path="/" element={<Navigate to="/login" />} />
+        <Route path='*' element={<Page404 />} />
       </Routes>
     </BrowserRouter>
   );

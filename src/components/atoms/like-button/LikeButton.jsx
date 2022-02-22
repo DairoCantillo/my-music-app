@@ -13,7 +13,7 @@ const LikeButton = ({ id, initState = false }) => {
   const tracks = useSelector((state) => state.tracks.tracks);
   const [cliked, setCliked] = useState(initState);
   const dispatch = useDispatch();
-  const handleLike = async (id) => {
+  const handleLike =  (id) => {
     setCliked(true);
     dispatch(favoritesService.addFavoriteTrack(id));
     dispatch(tracksService.deleteTrack(id, tracks));

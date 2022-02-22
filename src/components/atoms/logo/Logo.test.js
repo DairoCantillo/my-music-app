@@ -5,7 +5,6 @@ import Logo from "./Logo";
 
 
 const mockedUsedNavigate = jest.fn();
-// const mockHandler = jest.fn();
 
 jest.mock("react-router-dom", () => ({
   ...jest.requireActual("react-router-dom"),

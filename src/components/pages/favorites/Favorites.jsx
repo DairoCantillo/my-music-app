@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import TracksService from "../../../services/tracksService";
 import UserService from "../../../services/userService";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import "./favorites.scss";
 import FavoritesService from "../../../services/favoritesService";
 import CardsList from "../../organisms/cardsList/CardsList";
@@ -10,9 +10,9 @@ const favoritesService = new FavoritesService();
 const tracksService = new TracksService();
 const userService = new UserService();
 
-const Favorites = () => {
+const Favorites = ({favorites}) => {
   const dispatch = useDispatch();
-  const favorites = useSelector((state) => state.favorites);
+  
 
   useEffect(() => {
     dispatch(tracksService.getTracksTop50());
@@ -26,7 +26,7 @@ const Favorites = () => {
     </section>
   );
   return (
-    <div>{favorites.isLoading ? <Loading /> : <FavoritesComponent />}</div>
+    <div data-testid="favorites">{favorites.isLoading ? <Loading /> : <FavoritesComponent />}</div>
   );
 };
 
