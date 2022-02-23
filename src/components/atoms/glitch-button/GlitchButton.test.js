@@ -10,7 +10,7 @@ describe("<GlitchButton />", () => {
     const button = screen.getByText("LOGIN");
     expect(button).toBeInTheDocument();
   });
-  test("should redirect to spotify auth", () => {
+  test("should execute the function it receives", () => {
     render(<GlitchButton text="LOGIN" onclick={mockOnclick} />)
     const button = screen.getByText("LOGIN");
     fireEvent.click(button);
